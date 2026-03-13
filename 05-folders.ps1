@@ -22,7 +22,7 @@ if (-not (Test-Path $workLink)) {
 }
 
 # 3. Restore Jupyter Lab settings (fail if source not found)
-$jlSource = "$env:USERPROFILE\setup\jupyter-lab-user-settings"
+$jlSource = "$PSScriptRoot\jupyter-lab-user-settings"
 $jlTarget = "$env:USERPROFILE\.jupyter\lab\user-settings"
 if (-not (Test-Path $jlSource)) {
     Write-Host "ERROR: Jupyter Lab settings not found at $jlSource. Back up from old machine or pull from GitHub first."
