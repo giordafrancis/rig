@@ -4,7 +4,7 @@ Opinionated Windows 11 Pro workstation setup for data science.
 
 Scripts to go from a fresh install to a fully configured machine — single user account, soft boundaries between work and personal, conda environments for isolation.
 
-> **Take or leave it.** This reflects one person's preferences. Fork it, cherry-pick what's useful, skip what isn't.
+> This reflects one person's preferences. Fork it, cherry-pick what's useful, skip what isn't.
 
 ## Target Machine
 
