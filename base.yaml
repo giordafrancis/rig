@@ -1,0 +1,42 @@
+name: base
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python>=3.12
+  # Data / analysis
+  - numpy
+  - pandas
+  - pyarrow
+  - fastparquet
+  - scikit-learn
+  - matplotlib
+  - scipy
+  - tqdm
+  # Databases
+  - sqlalchemy
+  - pyodbc
+  # Web / HTTP
+  - httpx
+  - beautifulsoup4
+  # Jupyter
+  - jupyterlab
+  # Dev tools (fastai ecosystem)
+  - fastcore
+  - ghapi
+  - nbdev
+  # Utilities
+  - python-dotenv
+  - pyyaml
+  - pip
+  # pip-only packages
+  - pip:
+    - oracledb
+    - execnb
+    - keyboard
+    - torch
+    - torchvision
+    - torchaudio
+    - jupyterlab-spellchecker
+    - jupyterlab-lsp
+    - python-lsp-server
