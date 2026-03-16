@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # --- wsl-setup.sh — WSL Ubuntu Setup Script ---
-# Run with: sudo bash /mnt/c/Users/<username>/setup/07-wsl.sh
-# Depends on: 04-ssh.ps1 (SSH keys must be set up on Windows first)
+# Save to: /mnt/c/Users/<username>/setup/wsl-setup.sh
+# Run with: sudo bash /mnt/c/Users/<username>/setup/wsl-setup.sh
 set -e
 
 # Prompt for Windows username
@@ -12,6 +12,7 @@ if [ -z "$WINDOWS_USER" ]; then
 fi
 WSL_USER="${SUDO_USER:-$USER}"
 WSL_HOME="/home/$WSL_USER"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "=== WSL Setup for $WSL_USER (Windows user: $WINDOWS_USER) ==="
 
@@ -133,6 +134,19 @@ else
     touch "$HUSHFILE"
     chown "$WSL_USER:$WSL_USER" "$HUSHFILE"
     echo "   Created .hushlogin"
+fi
+
+
+# --- 10. tmux config ---
+echo -e "\n>>> 10. tmux config"
+TMUX_SRC="$SCRIPT_DIR/tmux.conf"
+TMUX_DEST="$WSL_HOME/.tmux.conf"
+if [ ! -f "$TMUX_SRC" ]; then
+    echo "   ⚠️  WARNING: tmux.conf not found in repo — skipping."
+else
+    cp "$TMUX_SRC" "$TMUX_DEST"
+    chown "$WSL_USER:$WSL_USER" "$TMUX_DEST"
+    echo "   Copied tmux.conf to $TMUX_DEST"
 fi
 
 # --- Done ---
