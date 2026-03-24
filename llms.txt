@@ -20,3 +20,7 @@ Target machine: Windows 11 Pro, no dedicated GPU, WSL 2 + Ubuntu for Linux tooli
 ## Config
 
 - [base.yaml](https://github.com/giordafrancis/rig/blob/main/base.yaml): Conda environment spec — numpy, pandas, scikit-learn, PyTorch (CPU), JupyterLab, nbdev, and more. Install with `conda env update -n base --file base.yaml`.
+
+## Manual Steps
+
+- [manual_steps.md](https://github.com/giordafrancis/rig/blob/main/manual_steps.md): Reference for everything not scripted — display scaling, default apps, VS Code Settings Sync, battery care (MyASUS 80% cap), McAfee removal, AI ExpertMeet removal, PowerToys key remap, WSL install, SSH/AWS key transfer.

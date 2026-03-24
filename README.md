@@ -44,7 +44,7 @@ conda env update -n base --file base.yaml
 
 ## Manual Steps
 
-Some things aren't scripted - see the comments in each script or notes below:
+Some things aren't scripted — see [`manual_steps.md`](manual_steps.md) for the full reference. Key items:
 
 - Display scaling and multi-monitor arrangement
 - Default apps (browser, PDF viewer, email)
@@ -54,6 +54,9 @@ Some things aren't scripted - see the comments in each script or notes below:
 - OneDrive sync (must complete before folder setup)
 - Copy `.ssh` and `.aws` folders via USB
 - Add API keys to shell profiles (WSL `~/.bashrc`, PowerShell `$PROFILE`)
+- McAfee removal (manual uninstall + MCPR tool if needed)
+- AI ExpertMeet + Plugin removal (~8 GB freed)
+- Battery Care Mode (MyASUS → Power & Performance → cap at 80%)
 
 
 ## LLM-Friendly Docs
