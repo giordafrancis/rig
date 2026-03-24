@@ -14,7 +14,7 @@ Target machine: Windows 11 Pro, no dedicated GPU, WSL 2 + Ubuntu for Linux tooli
 - [04-ssh.ps1](https://github.com/giordafrancis/rig/blob/main/04-ssh.ps1): Fix SSH key permissions (Windows ACLs) and print fingerprints for verification. Keys must be manually copied first.
 - [05-folders.ps1](https://github.com/giordafrancis/rig/blob/main/05-folders.ps1): Create personal projects folder and work symlink to OneDrive path. Restore Jupyter Lab settings. Depends on 02-profile.
 - [06-git.ps1](https://github.com/giordafrancis/rig/blob/main/06-git.ps1): Install git via winget, configure identity with conditional includes (personal default, work override by path). Depends on 02-profile.
-- [07-wsl.sh](https://github.com/giordafrancis/rig/blob/main/07-wsl.sh): WSL Ubuntu setup — apt-fast, AWS CLI, nvm + Node.js + CDK, Docker Engine (no Docker Desktop), SSH key copy from Windows, browser integration. Depends on 04-ssh.
+- [07-wsl.sh](https://github.com/giordafrancis/rig/blob/main/07-wsl.sh): WSL Ubuntu setup — apt-fast, AWS CLI, nvm + Node.js + CDK, Docker Engine (no Docker Desktop), SSH key copy from Windows, browser integration, git config (conditional work/personal identity, autocrlf=input). Depends on 04-ssh.
 - [08-bloatware.ps1](https://github.com/giordafrancis/rig/blob/main/08-bloatware.ps1): Remove pre-installed bloatware — McAfee, Bing apps, Clipchamp, ASUS widgets, Solitaire, Phone Link, etc. Each entry commented with removal rationale. Admin recommended.
 
 ## Config

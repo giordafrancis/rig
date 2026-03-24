@@ -184,6 +184,40 @@ if [ "$install_ssage" = "y" ]; then
 else
     echo "   Skipped."
 fi
+# --- 12. Git config ---
+echo -e "\n>>> 12. Git config"
+if [ -f "$WSL_HOME/.gitconfig" ]; then
+    echo "   .gitconfig already exists — skipping."
+else
+    read -p "Enter git user.name: " git_name
+    if [ -z "$git_name" ]; then
+        echo "   ERROR: user.name cannot be empty. Skipping git config."
+    else
+        read -p "Enter personal email (default): " git_personal_email
+        read -p "Enter work email: " git_work_email
+
+        sudo -u "$WSL_USER" bash -c "
+            git config --global user.name \"$git_name\"
+            git config --global user.email \"$git_personal_email\"
+            git config --global core.editor \"code --wait\"
+            git config --global init.defaultBranch main
+            git config --global core.autocrlf input
+        "
+
+        # Work email override
+        cat > "$WSL_HOME/.gitconfig-work" << EOF
+[user]
+    email = $git_work_email
+EOF
+        chown "$WSL_USER:$WSL_USER" "$WSL_HOME/.gitconfig-work"
+
+        # Conditional include — repos under ~/nbs/ use work email
+        sudo -u "$WSL_USER" git config --global --add "includeIf.gitdir:~/nbs/.path" ".gitconfig-work"
+
+        echo "   Git configured. Work email applies under ~/nbs/."
+    fi
+fi
+
 # --- Done ---
 echo -e "\n=== Setup complete! ==="
 echo "Next steps:"
@@ -191,3 +225,4 @@ echo "  1. Close and reopen your terminal"
 echo "  2. Run: docker run hello-world"
 echo "  3. Run: aws sso login"
 echo "  4. Run: ssh -T git@github.com"
+echo "  5. Run: git config user.email (in ~/nbs/ and ~/personal_projects/ to verify)"

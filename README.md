@@ -24,7 +24,7 @@ Run in suggested order. No orchestrator - pick what you need.
 | 04 | `04-ssh.ps1` | SSH key permissions fix + fingerprint verify | - | No |
 | 05 | `05-folders.ps1` | Create project folders + work symlink | 02 | Maybe (symlinks) |
 | 06 | `06-git.ps1` | Git install + config (conditional work/personal identity) | 02 | No |
-| 07 | `07-wsl.sh` | WSL Ubuntu setup - AWS CLI, nvm, Node, CDK, Docker | 04 | Yes (runs with sudo) |
+| 07 | `07-wsl.sh` | WSL Ubuntu setup - AWS CLI, nvm, Node, CDK, Docker, git config | 04 | Yes (runs with sudo) |
 | 08 | `08-bloatware.ps1` | Remove pre-installed bloatware (McAfee, Bing, ASUS extras, etc.) | - | Recommended |
 
 ### Conda Environment
@@ -53,6 +53,7 @@ Some things aren't scripted - see the comments in each script or notes below:
 - WSL install + Ubuntu distro (`wsl --install -d Ubuntu` - requires reboot)
 - OneDrive sync (must complete before folder setup)
 - Copy `.ssh` and `.aws` folders via USB
+- Add API keys to shell profiles (WSL `~/.bashrc`, PowerShell `$PROFILE`)
 
 
 ## LLM-Friendly Docs
