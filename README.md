@@ -25,6 +25,7 @@ Run in suggested order. No orchestrator - pick what you need.
 | 05 | `05-folders.ps1` | Create project folders + work symlink | 02 | Maybe (symlinks) |
 | 06 | `06-git.ps1` | Git install + config (conditional work/personal identity) | 02 | No |
 | 07 | `07-wsl.sh` | WSL Ubuntu setup - AWS CLI, nvm, Node, CDK, Docker | 04 | Yes (runs with sudo) |
+| 08 | `08-bloatware.ps1` | Remove pre-installed bloatware (McAfee, Bing, ASUS extras, etc.) | - | Recommended |
 
 ### Conda Environment
 

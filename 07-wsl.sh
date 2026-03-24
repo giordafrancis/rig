@@ -149,6 +149,41 @@ else
     echo "   Copied tmux.conf to $TMUX_DEST"
 fi
 
+
+# --- 11. uv + shell_sage (optional) ---
+echo -e "\n>>> 11. uv + shell_sage (optional AI terminal assistant)"
+read -p "Install shell_sage? (y/n) " install_ssage
+if [ "$install_ssage" = "y" ]; then
+    # Install uv
+    if command -v uv &>/dev/null; then
+        echo "   uv already installed: $(uv --version)"
+    else
+        sudo -u "$WSL_USER" bash -c 'curl -LsSf https://astral.sh/uv/install.sh | sh'
+        echo "   uv installed."
+    fi
+    # Install shell_sage via uv tool
+    sudo -u "$WSL_USER" bash -c '
+        export PATH="$HOME/.local/bin:$PATH"
+        uv tool install shell_sage
+    '
+    echo "   shell_sage installed."
+    # Prompt for Anthropic API key
+    read -p "Enter your Anthropic API key (leave blank to skip): " anthropic_key
+    if [ -n "$anthropic_key" ]; then
+        BASHRC="$WSL_HOME/.bashrc"
+        if grep -q "ANTHROPIC_API_KEY" "$BASHRC" 2>/dev/null; then
+            echo "   ⚠️  ANTHROPIC_API_KEY already in .bashrc — skipping (edit manually if needed)."
+        else
+            echo "export ANTHROPIC_API_KEY=\"$anthropic_key\"" >> "$BASHRC"
+            chown "$WSL_USER:$WSL_USER" "$BASHRC"
+            echo "   Added ANTHROPIC_API_KEY to .bashrc"
+        fi
+    else
+        echo "   Skipped API key — set ANTHROPIC_API_KEY in ~/.bashrc later."
+    fi
+else
+    echo "   Skipped."
+fi
 # --- Done ---
 echo -e "\n=== Setup complete! ==="
 echo "Next steps:"
