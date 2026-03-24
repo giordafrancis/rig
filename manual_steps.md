@@ -23,7 +23,7 @@ These were configured through the Windows UI — not scripted, as they depend on
 - Email client — Outlook
 
 **VS Code:**
-- Settings Sync enabled via Lambeth (Microsoft) account — extensions, settings, keybindings, snippets all carried over
+- Settings Sync enabled via your Microsoft account — extensions, settings, keybindings, snippets all carried over
 
 **Accessibility — Text Size:**
 - Settings → Accessibility → Text size — decrease to control size at recommended scaling
